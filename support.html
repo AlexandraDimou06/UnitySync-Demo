@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UnitySync - Support Management</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    
+    <style>
+        /* Consistency in font and sizing across UI */
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            box-sizing: border-box;
+        }
+
+        .main-container { display: flex; min-height: 100vh; }
+        
+        /* Dark sidebar theme */
+        .standardized-info { 
+            flex: 2.5; 
+            padding: 50px 35px; 
+            background-color: #2c3e50; 
+            color: #ecf0f1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-item { margin-bottom: 35px; }
+
+        .sidebar-tag { 
+            color: #3498db; 
+            font-size: 0.75em; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .sidebar-value { font-size: 1.1em; line-height: 1.4; }
+
+        hr { border: 0.5px solid #3e4f5f; width: 100%; margin: 15px 0 35px 0; }
+
+        /* Main interface area */
+        .fill-the-form { 
+            flex: 7.5; 
+            padding: 40px; 
+            background-color: #f8f9fa; 
+        }
+
+        .support-card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 5px solid #3498db;
+            width: 100%;
+        }
+
+        h2 { color: #2c3e50; margin-top: 0; margin-bottom: 20px; font-size: 1.4em; }
+
+        /* Data grid layout */
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #f1f1f1; }
+        th { background-color: #fafafa; color: #7f8c8d; font-size: 0.8em; text-transform: uppercase; }
+        
+        select { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; background: white; }
+
+        /* Editor area for notifications */
+        textarea { 
+            width: 100%; 
+            padding: 15px; 
+            border: 1px solid #ddd; 
+            border-radius: 4px; 
+            margin-top: 10px;
+            font-size: 0.95em;
+            line-height: 1.6;
+            resize: none; 
+        }
+
+        .button-group { display: flex; gap: 12px; margin-top: 25px; }
+        
+        .logout-btn {
+            margin-top: auto;
+            color: #bdc3c7;
+            text-decoration: none;
+            font-size: 0.85em;
+            padding: 10px;
+            border: 1px dashed #444;
+            text-align: center;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+
+    <aside class="standardized-info info-column">
+        <div>
+            <h3>Support Console</h3>
+            <hr>
+        </div>
+        
+        <div class="sidebar-item">
+            <span class="sidebar-tag">Active Actor</span>
+            <div class="sidebar-value">Customer Support Agent</div>
+        </div>
+
+        <div class="sidebar-item">
+            <span class="sidebar-tag">System Entity</span>
+            <div class="sidebar-value">UnitySync ERP Gateway</div>
+        </div>
+
+        <div class="sidebar-item">
+            <span class="sidebar-tag">Operational Status</span>
+            <div class="sidebar-value"><span class="badge active">SLA Monitoring Active</span></div>
+        </div>
+
+        <a href="index.html" class="logout-btn">« Switch Department View</a>
+    </aside>
+
+    <main class="fill-the-form">
+        
+        <section class="support-card">
+            <h2>Route tickets by priority</h2>
+            <p style="color: #7f8c8d; font-size: 0.9em; margin-bottom: 15px;">
+                Incoming tickets from <strong>Freshdesk</strong> and <strong>EBS</strong> integration.
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Source ID</th>
+                        <th>Client / Company</th>
+                        <th>Problem Summary</th>
+                        <th>Urgency Level</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>FD-82401</td>
+                        <td>Alpha Retail S.A.</td>
+                        <td>myDATA Synchronization Error</td>
+                        <td>
+                            <select>
+                                <option>Low Priority</option>
+                                <option>Medium Priority</option>
+                                <option selected>High Priority</option>
+                            </select>
+                        </td>
+                        <td><button class="submit-btn">Execute Routing</button></td>
+                    </tr>
+                    <tr>
+                        <td>EBS-9902</td>
+                        <td>Beta Logistics</td>
+                        <td>Web Service Timeout (504)</td>
+                        <td>
+                            <select>
+                                <option>Low Priority</option>
+                                <option>Medium Priority</option>
+                                <option selected>Critical Urgency</option>
+                            </select>
+                        </td>
+                        <td><button class="submit-btn">Execute Routing</button></td>
+                    </tr>
+                    <tr>
+                        <td>FD-82410</td>
+                        <td>Gamma Tech</td>
+                        <td>License Activation Issue</td>
+                        <td>
+                            <select>
+                                <option selected>Low Priority</option>
+                                <option>Medium Priority</option>
+                                <option>High Priority</option>
+                            </select>
+                        </td>
+                        <td><button class="submit-btn">Execute Routing</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="support-card">
+            <h2>Approve automated response</h2>
+            <p style="color: #7f8c8d; font-size: 0.9em;">
+                Review the system-generated draft for <strong>Ticket #82401</strong>.
+            </p>
+            
+            <textarea rows="6">Dear Valued Client, 
+
+We have successfully received your request regarding the myDATA synchronization error. Our technical department is currently analyzing the communication logs. You will receive an update within the next 4 hours as per your Gold SLA agreement.
+
+Thank you for your cooperation, 
+UnitySync Support Team</textarea>
+            
+            <div class="button-group">
+                <button class="submit-btn" style="background-color: #27ae60;">Approve & Send Email</button>
+                <button class="submit-btn" style="background-color: #e67e22;">Modify Content</button>
+                <button class="submit-btn" style="background-color: #c0392b;">Reject Draft</button>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+</body>
+</html>

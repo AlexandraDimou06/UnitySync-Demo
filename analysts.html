@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UnitySync - Product Analyst Console</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    
+    <style>
+        /* Global font reset and box-sizing consistency */
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            box-sizing: border-box;
+        }
+
+        .main-container { display: flex; min-height: 100vh; }
+        
+        /* Sidebar container styling */
+        .standardized-info { 
+            flex: 2.5; 
+            padding: 50px 35px; 
+            background-color: #2c3e50; 
+            color: #ecf0f1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-item { margin-bottom: 30px; }
+        .sidebar-tag { color: #3498db; font-size: 0.75em; font-weight: bold; text-transform: uppercase; margin-bottom: 5px; display: block; }
+        
+        .fill-the-form { flex: 7.5; padding: 40px; background-color: #f8f9fa; }
+
+        /* Module card design */
+        .analyst-card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 5px solid #3498db;
+        }
+
+        .mode-selector {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .mode-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border: 2px solid #eee;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .mode-option:hover { border-color: #3498db; }
+        input[type="radio"]:checked + span { color: #3498db; }
+
+        h2 { color: #2c3e50; margin-top: 0; margin-bottom: 25px; font-size: 1.3em; text-transform: uppercase; }
+
+        /* Form field spacing */
+        .flow-field { margin-bottom: 25px; }
+        .flow-field label { display: block; font-weight: bold; margin-bottom: 10px; color: #34495e; }
+        
+        input[type="text"], textarea { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid #ddd; 
+            border-radius: 4px; 
+            background: #fff;
+        }
+
+        .action-bar { 
+            display: flex; 
+            gap: 15px; 
+            margin-top: 30px; 
+            padding-top: 20px; 
+            border-top: 1px solid #eee;
+            align-items: center;
+        }
+
+        .special-btn {
+            padding: 10px 18px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            border: 1px solid #3498db;
+            background: transparent;
+            color: #3498db;
+        }
+
+        /* Submit action styling */
+        .approval-stamp-btn {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-left: auto;
+            transition: 0.3s;
+        }
+
+        .approval-stamp-btn:hover { 
+            background-color: #219150; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+        }
+
+        .switch-view-btn {
+            margin-top: auto;
+            color: #bdc3c7;
+            text-decoration: none;
+            font-size: 0.85em;
+            padding: 12px;
+            border: 1px dashed #444;
+            text-align: center;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <aside class="standardized-info info-column">
+        <div>
+            <h3>Product Analyst Console</h3>
+            <hr style="border: 0.5px solid #3e4f5f; margin-bottom: 30px;">
+        </div>
+
+        <div class="sidebar-item">
+            <span class="sidebar-tag">Actor</span>
+            <div class="sidebar-value">Product Analyst</div>
+        </div>
+
+        <div class="sidebar-item">
+            <span class="sidebar-tag">System Control</span>
+            <div class="sidebar-value">Version Control Active</div>
+        </div>
+
+        <div class="sidebar-item">
+            <span class="sidebar-tag">Linking Mode</span>
+            <div class="sidebar-value">Mass Linking Enabled</div>
+        </div>
+
+        <a href="index.html" class="switch-view-btn">« Switch Department View</a>
+    </aside>
+
+    <main class="fill-the-form">
+        
+        <div class="mode-selector">
+            <label class="mode-option">
+                <input type="radio" name="op-mode" checked>
+                <span>Create Specification</span>
+            </label>
+            <label class="mode-option">
+                <input type="radio" name="op-mode">
+                <span>Edit Specification</span>
+            </label>
+        </div>
+
+        <section class="analyst-card">
+            <h2>Basic Flow Specification</h2>
+
+            <div class="flow-field">
+                <label>Title</label>
+                <input type="text" placeholder="Enter context title...">
+            </div>
+
+            <div class="flow-field">
+                <label>Solution Content</label>
+                <textarea rows="10" placeholder="Technical solution details..."></textarea>
+            </div>
+
+            <div class="flow-field">
+                <label>Tags</label>
+                <input type="text" placeholder="Indexing tags (e.g. #mydata)...">
+            </div>
+
+            <div class="action-bar">
+                <button class="special-btn" style="border-color: #e67e22; color: #e67e22;">Save Draft</button>
+                <button class="special-btn">Mass Linking</button>
+                <button class="special-btn">Version Control</button>
+                
+                <button class="approval-stamp-btn">Approval Stamp</button>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+</body>
+</html>

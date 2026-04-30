@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UnitySync - Developer Console</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    
+    <style>
+        /* Baseline layout and typography configuration */
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            box-sizing: border-box;
+        }
+
+        .main-container { display: flex; min-height: 100vh; }
+        
+        /* Lateral panel for administrative metadata */
+        .standardized-info { 
+            flex: 2.5; 
+            padding: 50px 35px; 
+            background-color: #2c3e50; 
+            color: #ecf0f1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-item { margin-bottom: 30px; }
+        .sidebar-tag { color: #3498db; font-size: 0.75em; font-weight: bold; text-transform: uppercase; margin-bottom: 5px; display: block; }
+        
+        .fill-the-form { flex: 7.5; padding: 40px; background-color: #f8f9fa; }
+
+        /* Main heading for the retrieval interface */
+        .retrieval-header {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        /* Filter and search module layout */
+        .search-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .search-section input { flex: 1; margin-top: 0; }
+
+        /* Data grid for ticket visualization */
+        .tickets-container { display: grid; gap: 12px; margin-bottom: 30px; }
+
+        /* Individual entry row styling */
+        .ticket-row {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .ticket-row:hover { background: #f1f9ff; transform: translateX(5px); }
+
+        .ticket-id { font-weight: bold; color: #2c3e50; font-family: monospace; }
+        
+        .tag-pill {
+            background: #ebf5fb;
+            color: #2980b9;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.72em;
+            margin-left: 5px;
+            border: 1px solid #d4e6f1;
+        }
+
+        /* Modal subsystem for detailed solution display */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: none; 
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .solution-modal {
+            background: white;
+            width: 620px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .solution-header { border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 20px; }
+        .solution-body { line-height: 1.6; color: #444; }
+
+        /* Navigation controls for results */
+        .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
+        .page-node {
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #333;
+        }
+        .page-node.active { background: #3498db; color: white; border-color: #3498db; }
+
+        .switch-view-btn {
+            margin-top: auto;
+            color: #bdc3c7;
+            text-decoration: none;
+            font-size: 0.85em;
+            padding: 12px;
+            border: 1px dashed #444;
+            text-align: center;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <aside class="standardized-info info-column">
+        <div>
+            <h3>Developers Console</h3>
+            <hr style="border: 0.5px solid #3e4f5f; margin-bottom: 30px;">
+        </div>
+        <div class="sidebar-item">
+            <span class="sidebar-tag">Actor</span>
+            <div class="sidebar-value">Developer</div>
+        </div>
+        <div class="sidebar-item">
+            <span class="sidebar-tag">System Mode</span>
+            <div class="sidebar-value">Repository Retrieval</div>
+        </div>
+        <a href="index.html" class="switch-view-btn">« Switch Department View</a>
+    </aside>
+
+    <main class="fill-the-form">
+        <h1 class="retrieval-header">Knowledge Retrieval</h1>
+
+        <div class="search-section">
+            <input type="text" placeholder="Search related tickets by tag or technical ID...">
+            <button class="submit-btn">Search Tickets</button>
+        </div>
+
+        <div class="tickets-container">
+            <div class="ticket-row" onclick="document.getElementById('solutionModal').style.display='flex'">
+                <span class="ticket-id">TICKET-9283</span>
+                <div class="ticket-tags"><span class="tag-pill">#sql_injection</span><span class="tag-pill">#security</span></div>
+            </div>
+            <div class="ticket-row" onclick="document.getElementById('solutionModal').style.display='flex'">
+                <span class="ticket-id">TICKET-8841</span>
+                <div class="ticket-tags"><span class="tag-pill">#api_timeout</span><span class="tag-pill">#rest_v2</span></div>
+            </div>
+            <div class="ticket-row" onclick="document.getElementById('solutionModal').style.display='flex'">
+                <span class="ticket-id">TICKET-7720</span>
+                <div class="ticket-tags"><span class="tag-pill">#ui_glitch</span><span class="tag-pill">#css_grid</span></div>
+            </div>
+            <div class="ticket-row" onclick="document.getElementById('solutionModal').style.display='flex'">
+                <span class="ticket-id">TICKET-6592</span>
+                <div class="ticket-tags"><span class="tag-pill">#database_sync</span><span class="tag-pill">#mydata</span></div>
+            </div>
+            <div class="ticket-row" onclick="document.getElementById('solutionModal').style.display='flex'">
+                <span class="ticket-id">TICKET-5431</span>
+                <div class="ticket-tags"><span class="tag-pill">#auth_module</span><span class="tag-pill">#oauth2</span></div>
+            </div>
+            <div class="ticket-row" onclick="document.getElementById('solutionModal').style.display='flex'">
+                <span class="ticket-id">TICKET-4322</span>
+                <div class="ticket-tags"><span class="tag-pill">#pdf_generator</span><span class="tag-pill">#lib_update</span></div>
+            </div>
+            <div class="ticket-row" onclick="document.getElementById('solutionModal').style.display='flex'">
+                <span class="ticket-id">TICKET-3211</span>
+                <div class="ticket-tags"><span class="tag-pill">#memory_leak</span><span class="tag-pill">#node_js</span></div>
+            </div>
+            <div class="ticket-row" onclick="document.getElementById('solutionModal').style.display='flex'">
+                <span class="ticket-id">TICKET-2105</span>
+                <div class="ticket-tags"><span class="tag-pill">#bug_fix</span><span class="tag-pill">#ebs_integration</span></div>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <a href="#" class="page-node active">1</a>
+            <a href="#" class="page-node">2</a>
+            <a href="#" class="page-node">3</a>
+        </div>
+    </main>
+</div>
+
+<div id="solutionModal" class="modal-overlay" onclick="this.style.display='none'">
+    <div class="solution-modal" onclick="event.stopPropagation()">
+        <div class="solution-header">
+            <h2 style="margin:0; color:#2c3e50;">Technical Solution</h2>
+            <small style="color:#3498db;">Reference ID: TICKET-9283</small>
+        </div>
+        <div class="solution-body">
+            <p><strong>Problem Analysis:</strong> Critical failure identified in the sanitation layer of the legacy SQL engine.</p>
+            <p><strong>Proposed Solution:</strong> Deployment of parameterized queries and integration of a secondary validation middleware.</p>
+        </div>
+        <button class="submit-btn" style="margin-top:20px; width:100%;" onclick="document.getElementById('solutionModal').style.display='none'">Close View</button>
+    </div>
+</div>
+
+</body>
+</html>
