@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>UnitySync - Login</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+
+    <style>
+        body {
+            display: block;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .login-container {
+            width: 300px;
+            margin: 0 auto; 
+            padding: 30px;
+            border: 1px solid;
+            border-radius: 8px;
+            text-align: left; 
+        }
+
+        h2 { text-align: center; }
+        .field { margin-bottom: 15px; }
+        input, select { width: 100%; box-sizing: border-box; }
+        
+        .brand-logo { 
+            position: absolute; top: 15px; left: 20px; 
+            font-weight: bold; font-size: 20px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="brand-logo">UnitySync</div>
+    
+    <div class="login-container">
+        <h2>UnitySync Login</h2>
+        
+        <form id="loginForm">
+            <div class="field">
+                <label>Username</label>
+                <input type="text" required>
+            </div>
+
+            <div class="field">
+                <label>Password</label>
+                <input type="password" required>
+            </div>
+
+          <div class="field">
+                <label>Select Department</label>
+                <!-- Προσθήκη ID και των σωστών Links στα values -->
+                <select id="department" required>
+                    <option value="">-- Select Department --</option>
+                    <option value="https://detfolio.dmst.aueb.gr/students2024/alekdimou/inetpub/consultants.html">Consultant Console</option>
+                    <option value="https://detfolio.dmst.aueb.gr/students2024/alekdimou/inetpub/developers.html">Developer Console </option>
+                    <option value="https://detfolio.dmst.aueb.gr/students2024/alekdimou/inetpub/support.html">Support Console </option>
+                    <option value="https://detfolio.dmst.aueb.gr/students2024/alekdimou/inetpub/analysts.html">Analyst Console</option>
+                    <option value="https://detfolio.dmst.aueb.gr/students2024/alekdimou/inetpub/managers.html">Management Console</option>
+                </select>
+            </div>
+
+            <!-- Changed to type="button" and added onclick event -->
+            <button type="button" class="submit-btn" style="width: 100%;" onclick="navigate()">Είσοδος</button>
+        </form>
+    </div>
+
+   <script>
+    function navigate() {
+        // 1. Get values from input fields 
+        var userField = document.querySelector('input[type="text"]').value;
+        var passField = document.querySelector('input[type="password"]').value;
+        
+        // 2. Get the selected department from the dropdown
+        var select = document.getElementById("department");
+        var url = select.value;
+
+        // 3. Define hardcoded credentials for demo purposes
+        var correctUser = "admin";
+        var correctPass = "12345";
+
+        // 4. Authentication check
+        if (userField === correctUser && passField === correctPass) {
+            
+            // If credentials are correct, check if a department is selected
+            if (url !== "") {
+                window.location.href = url; // Redirect to the selected HTML page
+            } else {
+                alert("Login successful! Please select a department.");
+            }
+            
+        } else {
+            // If credentials are wrong, show an error message
+            alert("Invalid Username or Password! Please use admin / 12345");
+        }
+    }
+</script>
+
+</body>
+</html>

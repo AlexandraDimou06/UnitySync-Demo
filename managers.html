@@ -1,0 +1,165 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UnitySync - Management Console</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+<body>
+
+<!-- Main container holding sidebar and main content -->
+<div class="main-container">
+
+    <!-- Sidebar: standardized system information -->
+    <aside class="standardized-info info-column">
+        
+        <div>
+            <h3>Management Console</h3>
+            <hr style="border: 0.5px solid #3e4f5f; margin-bottom: 30px;">
+        </div>
+
+        <!-- Actor information -->
+        <div class="sidebar-item">
+            <span class="sidebar-tag">Actor</span>
+            <div class="sidebar-value">Management Executive</div>
+        </div>
+
+        <!-- System status information-->
+        <div class="sidebar-item">
+            <span class="sidebar-tag">Dashboard Status</span>
+            <div class="sidebar-value">Performance Data Updated</div>
+        </div>
+
+        <!-- Reporting mode information-->
+        <div class="sidebar-item">
+            <span class="sidebar-tag">Report Mode</span>
+            <div class="sidebar-value">PDF / Excel Export Enabled</div>
+        </div>
+
+        <!-- Navigation link back to main dashboard -->
+        <a href="index.html" class="switch-view-btn">« Switch Department View</a>
+    </aside>
+
+    <!-- Main content area for management dashboard -->
+    <main class="fill-the-form">
+
+        <!-- Dashboard card -->
+        <section class="manager-card">
+            
+            <!-- KPI section title -->
+            <h2>Performance Dashboard</h2>
+
+            <!-- KPI metrics grid -->
+            <div class="kpi-grid">
+
+                <!-- KPI: Total tickets -->
+                <div class="kpi-box">
+                    <div class="kpi-value">128</div>
+                    <div class="kpi-label">Total Tickets</div>
+                </div>
+
+                <!-- KPI: Resolution rate -->
+                <div class="kpi-box">
+                    <div class="kpi-value">86%</div>
+                    <div class="kpi-label">Resolution Rate</div>
+                </div>
+
+                <!-- KPI: Average response time -->
+                <div class="kpi-box">
+                    <div class="kpi-value">2.4d</div>
+                    <div class="kpi-label">Average Response Time</div>
+                </div>
+
+                <!-- KPI: SLA compliance -->
+                <div class="kpi-box">
+                    <div class="kpi-value">94%</div>
+                    <div class="kpi-label">SLA Compliance</div>
+                </div>
+            </div>
+
+            <!-- Table section title -->
+            <h2>Department Performance Report</h2>
+
+            <!-- Performance table -->
+            <table class="report-table">
+                
+                <!-- Table header -->
+                <thead>
+                    <tr>
+                        <th>Department</th>
+                        <th>Open Tickets</th>
+                        <th>Resolved Tickets</th>
+                        <th>Productivity</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <!-- Table body with sample data -->
+                <tbody>
+
+                    <!-- Support Agents row -->
+                    <tr>
+                        <td>Support Agents</td>
+                        <td>18</td>
+                        <td>52</td>
+                        <td>High</td>
+                        <td class="status-good">On Track</td>
+                    </tr>
+
+                    <!-- Developers row -->
+                    <tr>
+                        <td>Developers</td>
+                        <td>25</td>
+                        <td>34</td>
+                        <td>Medium</td>
+                        <td class="status-risk">SLA Risk</td>
+                    </tr>
+
+                    <!-- Product Analysts row -->
+                    <tr>
+                        <td>Product Analysts</td>
+                        <td>9</td>
+                        <td>21</td>
+                        <td>High</td>
+                        <td class="status-good">On Track</td>
+                    </tr>
+
+                    <!-- Consultants row -->
+                    <tr>
+                        <td>Consultants</td>
+                        <td>6</td>
+                        <td>15</td>
+                        <td>Low</td>
+                        <td class="status-alert">Immediate Review</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <!-- Action buttons section -->
+            <div class="action-bar">
+                
+                <!-- View reports button -->
+                <button class="special-btn">View Reports</button>
+                
+                <!-- Refresh data button -->
+                <button class="special-btn">Refresh Data</button>
+                
+                <!-- Offline data warning button -->
+                <button class="special-btn" style="border-color: #e67e22; color: #e67e22;">
+                    Offline Data Check
+                </button>
+
+                <!-- Export report button -->
+                <button class="export-btn">Export Report</button>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

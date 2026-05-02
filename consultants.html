@@ -1,0 +1,90 @@
+<!--consultant-->
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>UnitySync ERP Gateway</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+
+    <style>
+        .info-column {
+            position: absolute; 
+            left: 0;
+            top: 0;
+            width: 280px;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .forms-column {
+            margin-left: 280px; 
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        .form-section {
+            margin-bottom: 60px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="info-column">
+        <h3>Standardized Info</h3>
+        <hr>
+        <div class="info-item">
+            <label>Επωνυμία Πελάτη:</label>
+            <p>Alpha Beta Systems S.A.</p>
+        </div>
+        <div class="info-item">
+            <label>Κωδικός Πελάτη (ID):</label>
+            <p>CUST-89-2026</p>
+        </div>
+        <div class="info-item">
+            <label>SLA Status:</label>
+            <span class="badge active">Active </span>
+            
+        </div>
+    </div>
+
+    <div class="forms-column">
+        
+        <div class="form-section">
+            <h2>1. New Ticket Entry</h2>
+            <form>
+                <label>Κατηγορία Προβλήματος:</label><br>
+                <select style="width: 100%;">
+                    <option>myDATA Error</option>
+                    <option>ERP Bug</option>
+                </select>
+                <br><br>
+                <label>Περιγραφή:</label><br>
+                <textarea rows="4" style="width: 100%;"></textarea>
+                
+                <br><br>
+                <label>Επισύναψη Τεκμηρίωσης (Optional):</label><br>
+                <input type="file">
+
+                <br><br>
+                <button type="button" class="submit-btn">Finalize Ticket</button>
+            </form>
+        </div>
+
+        <hr>
+
+        <div class="form-section">
+            <h2>2. Routing Validation</h2>
+            <label>Προτεινόμενος Πάροχος:</label><br>
+            <select style="width: 100%;">
+                <option>Softone</option>
+                <option>Impact</option>
+            </select>
+            <br><br>
+            <button type="button" class="submit-btn">Confirm Routing</button>
+        </div>
+
+    </div>
+
+</body>
+</html>
